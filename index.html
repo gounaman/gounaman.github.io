@@ -16,23 +16,33 @@
          border: 5px #009000;
          /* green */
          border-style: groove;
-         background-color: #f9e4b7;
+         background-color: #fb3;
          margin: 0 auto;
          /* centers surface on a page */
+		 
          }
 		          
       </style>
    </head>
    <body>
       <div class="drawingSurface">
-         <svg viewBox="0 0 400 400" stroke="#009000" stroke-width=".5" width="300" height="300" >
+         <svg viewBox="0 0 400 400" stroke="#8b1717" stroke-width=".5" width="300" height="300" >
+		 
             <defs>
-               <polygon id="triangle" points="200,125 264.95,237.5 135.05,237.5" 
-                  style="stroke:#23394e;stroke-width:1; fill:#23394e;"  />
-            </defs>
-            
-			/* create pentadecagon */
 			
+				<polygon id="triangle" points="200,125 264.95,237.5 135.05,237.5" 
+                  style="stroke:#23394e;stroke-width:1; fill:#23394e;"  />
+				  
+			<g id="turret">
+			
+				<rect width="40" height="60" fill="#8b1717" transform="translate(0,27)" rx="15" />
+				<circle cx="20" cy="46" r="20" fill="#8b1717" transform="translate(0,21)" />
+				<polygon points="20,0 40,34.5 0,34.5" fill="#8b1717" />
+   
+			</g> 
+		  	
+            </defs>
+           
 			<g>
 			
 			<use xlink:href="#triangle" />
@@ -52,6 +62,25 @@
 			/>
 			
 			</g>
+			
+			<g>
+			
+			 <use xlink:href="#turret" transform="rotate(180,110,60)"/>		 
+			 <use xlink:href="#turret" transform="translate(180,280)"/>
+			 <use xlink:href="#turret" transform="rotate(90,-30,150)"/>	
+			 <use xlink:href="#turret" transform="rotate(-90,245,-35)"/>
+			 
+			<animateTransform
+            attributeName="transform"
+            begin="0s"
+            dur="5s"
+            type="rotate"
+            from="360 200 200"
+            to="0 200 200"
+            repeatCount="indefinite" />
+			
+			</g>
+		
          </svg>
       </div>
    </body>
